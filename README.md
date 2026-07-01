@@ -50,3 +50,6 @@ const imageUrl = item.show.image ? item.show.image.medium : 'path-to-your-local-
 * **Saving Data:** When a show is saved, push its title and image URL into a JavaScript array.
 * **Persistence:** Immediately use `localStorage.setItem()` to convert that array into a JSON string and save it to the browser.
 * **On Load:** When you refresh the page, your script should check `localStorage`. If saved shows exist, parse them and render them in a dedicated "My Watchlist" section on the screen. Include a "Remove" button on these saved items to delete them from the array and update storage.
+
+## Mockup
+<img width="1024" height="559" alt="image" src="https://github.com/user-attachments/assets/b743a6c8-031b-4976-8302-0c434555f866" />
