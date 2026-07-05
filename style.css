@@ -16,12 +16,12 @@ righteous font- for website name/title
 h1 {
     font-family: "Righteous";
     font-weight: 100;
-    color: #9a0e83; /* 9a0e83 */
+    color: #8368AD; /* 9a0e83 */
 }
 
 #logo h1 {
     padding: 20px;
-    background-color: #353535;
+    background-color: #2B2B33;
 }
 
 /* . for class */
@@ -53,7 +53,7 @@ h1 {
 #watchlist {
     margin: 10px;
     padding: 10px 100px;
-    background-color: #bee0ff;
+    background-color: #F5F5F7;
 }
 
 #results {
