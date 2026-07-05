@@ -65,11 +65,13 @@ h1 {
     background-color: white;
     font-size: 0.7rem;
     border-radius: 10px;
+    width: fit-content;
 }
 
 .genre-yr-row {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
 }
 #results {
     margin: 10px;
@@ -79,3 +81,7 @@ h1 {
     border-radius: 20px;
 }
 
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
