@@ -16,7 +16,7 @@ righteous font- for website name/title
 h1 {
     font-family: "Righteous";
     font-weight: 100;
-    color: #8368AD; /* 9a0e83 */
+    color: #7d56bc; /* 9a0e83 */
 }
 
 #logo h1 {
@@ -47,19 +47,33 @@ h1 {
 }
 
 #watchlist h2 {
-    color: #0c4479;
+    max-width: 100%;
+    color: #f3e4e4; /* #6733b9; */
 }
 
 #watchlist {
     margin: 10px;
     padding: 10px 100px;
-    background-color: #F5F5F7;
+    background-color: #6868cc;
+    border-radius: 20px;
+}
+.watchlist-card {
+    margin: 10px;
+    padding: 10px;
+    background-color: white;
+    font-size: 0.7rem;
+    border-radius: 10px;
 }
 
+#genre-yr-row {
+    display: flex;
+    flex-direction: row;
+}
 #results {
     margin: 10px;
     padding: 10px 200px;
-    background-color: #a9c9e8;
+    background-color: #8f97a2;
     justify-content: center;
+    border-radius: 20px;
 }
 
