@@ -19,3 +19,18 @@ h1 {
     color: #a11389;
 }
 
+/* . for class */
+
+/* # for id */
+#search-bar {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+}
+
+#lists-row {
+    display: flex;
+    flex-direction: row;
+}
+
+
