@@ -5,6 +5,7 @@ lexend font- for body text
 righteous font- for website name/title
   */
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Righteous&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -54,7 +55,7 @@ h1 {
 }
 
 #watchlist h2 {
-    color: #f3e4e4; /* #6733b9; */
+    color: #eaeaea; /* #6733b9; */
 }
 
 #watchlist {
@@ -73,8 +74,10 @@ h1 {
 }
 
 .remove-btn {
-    background-color: #fff0c3;
-    color: #c59404;
+    /* background-color: #fff0c3;
+    color: #c59404; */
+    background-color: #ffb48f;
+    color: #da7549;
     border: none;
     padding: 4px 10px;
     border-radius: 30px;
