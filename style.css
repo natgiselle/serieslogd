@@ -1,8 +1,8 @@
 
 /*
 import from font googleapis
-lexend font
-righteous font
+lexend font- for body text
+righteous font- for website name/title
   */
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Righteous&display=swap');
 * {
@@ -16,5 +16,6 @@ righteous font
 h1 {
     font-family: "Righteous";
     font-weight: 100;
-    color: #941e80;
+    color: #a11389;
 }
+
