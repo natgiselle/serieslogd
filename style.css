@@ -35,6 +35,7 @@ h1 {
     font-size: 1rem;
     border: 2px solid #a8a7a7;
     border-radius: 100px;
+    caret-color: #6868cc; /* changes the | color which is what follows the text */
 }
 #search-bar input:focus {
     outline: 3px solid #6868cc;
@@ -71,6 +72,15 @@ h1 {
     width: fit-content;
 }
 
+.remove-btn {
+    background-color: #fff0c3;
+    color: #c59404;
+    border: none;
+    padding: 4px 10px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
 .genre-yr-row {
     display: flex;
     flex-direction: row;
@@ -80,9 +90,28 @@ h1 {
 #results {
     margin: 10px;
     padding: 10px 20px;
-    background-color: #8f97a2;
+    background-color: #bfbdc6; /* #8f97a2; */
     justify-content: center;
     border-radius: 20px;
+    color: #2B2B33;
+}
+
+.results-card {
+    margin: 10px;
+    padding: 10px;
+    background-color: rgb(253, 253, 253);
+    font-size: 0.7rem;
+    border-radius: 10px;
+    width: fit-content;
+}
+
+.add-btn {
+    background-color: #bbfec7;
+    color:  #5FAE6E;
+    border: none;
+    padding: 4px 10px;
+    border-radius: 30px;
+    cursor: pointer;
 }
 
 html, body {
