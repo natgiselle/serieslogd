@@ -16,7 +16,9 @@ righteous font- for website name/title
 h1 {
     font-family: "Righteous";
     font-weight: 100;
-    color: #7d56bc; /* 9a0e83 */
+    color: #6868cc; 
+    /* 7d56bc */
+    /* 9a0e83 */
 }
 
 #logo h1 {
