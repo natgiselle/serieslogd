@@ -44,12 +44,12 @@ h1 {
     cursor: pointer;
 }
 #lists-row {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* */
+    gap: 10px;
 }
 
 #watchlist h2 {
-    max-width: 100%;
     color: #f3e4e4; /* #6733b9; */
 }
 
@@ -67,13 +67,13 @@ h1 {
     border-radius: 10px;
 }
 
-#genre-yr-row {
-    display: flex;
-    flex-direction: row;
+.genre-yr-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
 }
 #results {
     margin: 10px;
-    padding: 10px 200px;
+    padding: 10px 20px;
     background-color: #8f97a2;
     justify-content: center;
     border-radius: 20px;
