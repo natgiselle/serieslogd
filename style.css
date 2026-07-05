@@ -1,0 +1,16 @@
+
+/* lexend font- import from font googleapis  */
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Single:wght@100..900&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Lexend:wght@100..900&family=Orbitron:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Single:wght@100..900&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Lexend:wght@100..900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Lexend";
+    font-weight: 400;
+}
+
+h1 {
+    font-family: "Orbitron";
+    font-weight: 700;
+}
