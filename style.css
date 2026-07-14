@@ -113,7 +113,7 @@ h1 {
     background-color: var(--light-gray); /* #8f97a2; */
     justify-content: center;
     border-radius: 20px;
-    color: var(--text-dark);
+    color: var(--primary-dark);
 }
 
 .results-card {
