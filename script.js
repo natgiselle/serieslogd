@@ -22,12 +22,13 @@ searchBarBtn.addEventListener("click", async() =>
 {
     console.log("clicked");
     // the moment you click the button will be whatever the user just typed as searchTerm
+    // (Phase 2) Read Input Value
     const searchTerm = searchBarInput.value; // grabs the input freshly every single click (every text input in the DOM has a .value property)
     const data = searchShows(searchTerm);
     console.log(searchTerm);
 });
 
-/** (Phase 2) Fetching Data: 
+/** (Phase 3) Fetching Data
  * fetch() is a built-in browser funcion that makes HTTPS/HTTP requests:
  * it can hit either http:// or https:// URLs, whichever the address uses
  * it returns a Promise, which is why we use .then() or async/await
@@ -41,17 +42,22 @@ searchBarBtn.addEventListener("click", async() =>
  * ___________________________________________________________________________________________
  * response.json(): parses the raw response body into usable data
 */
-
 // when user types a show and clicks search, it grabs the input and fetches it from TVMaze API
 // searchTerm is the string that is sent to the TVMaze API
 async function searchShows(searchTerm){
     const response = await fetch(`https://api.tvmaze.com/search/shows?q=${searchTerm}`); // this line pauses here
+    // (Phase 4) Parsing Response:
     const data = await response.json(); // this line will not run until the line above finishes
     console.log(data);
     return data;
 }
 
 
+/** (Phase 5) Clear Old Results: 
+ * add results.innerHTML
+*/
+
+results.innerHTML = ""; 
 
 
 
