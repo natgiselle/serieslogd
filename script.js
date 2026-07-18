@@ -46,4 +46,17 @@ searchBarBtn.addEventListener("click", () =>
  *      ~to play a match.
  * 
  *___________________________________________________________________________________________
+ * promise: IS LIKE THE QUEUE TIMER/STATUS INDICATOR
+ *      ~(letting you know how long it takes until you get put into a match)
+ *          the moment you click queue you dont have a match yet but
+ *          you immediately get a status called searching... 
+ *          which tells you that a server for you to play a match
+ *          is actively being searched for in which
+ *          they will put you into one just not at this moment yet.
+ * 
+ *      ~so the promise is that although there isnt a server to fetch right now,
+ *          they will give you what you requested eventually
+ *          so that you can play the match you requested.
+ * 
+ *___________________________________________________________________________________________
 */
