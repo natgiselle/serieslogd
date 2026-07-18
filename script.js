@@ -73,4 +73,17 @@ searchBarBtn.addEventListener("click", () =>
  *          the data it waits on has actually arrrived.
  * 
  * ___________________________________________________________________________________________
+ *  * async: LABELS A FUNCTION AS ONE THAT IS ALLOWED TO PAUSE AND WAIT ON PROMISES
+ *      ~you can ONLY use await INSIDE a function marked ASYNC
+ *          which basically is the permission that says this specific functino
+ *          is allowed to pause mid-execution and wait for real data.
+ *      ~imagine it's in match-making mdoe in the game menu:
+ *          you can only sit at queue timer (await) if you are
+ *          int the type of menu/mode that supports waiting for a match (async)
+ *          you CANNOT just await random Promises in a regular non-async function,
+ *          same way you CANNOT sit in a "searching..." queue screen
+ *          if you are NOT in the match-making mode to begin with
+ *      ~so in code writing async function searchShows(searchTerm){...}
+ *          marks that whole function as queue-capable
+ *          meaning await is allowed to be used somewhere inside it
 */
