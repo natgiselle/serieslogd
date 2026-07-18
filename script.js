@@ -59,4 +59,18 @@ searchBarBtn.addEventListener("click", () =>
  *          so that you can play the match you requested.
  * 
  *___________________________________________________________________________________________
+ * await: PAUSES THE FUNCTION's LINE-BY-LINE EXECUTION, NOT THE WHOLE PAGE/USER 
+ *      ~pauses THIS FUNCTION at this exact line, and DOES NOT let it move to the next line
+ *          until the Promise (the request) resolves and real data comes back
+ * 
+ *      ~imagine loading into a Minecraft server like Hypixel:
+ *          the game code WILL NOT run "spawn the player in " or "load the world"
+ *          and will NOT proceed to "you are now in the lobby"
+ *          until the connection/data-fetch (connecting to server) step finishes first.
+ * 
+ *      ~it is NOT you (the player) frozen everywhere,
+ *          it is the SPECIFIC STEP in the code refuses to proceed until
+ *          the data it waits on has actually arrrived.
+ * 
+ * ___________________________________________________________________________________________
 */
