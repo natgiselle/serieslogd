@@ -31,3 +31,19 @@ searchBarBtn.addEventListener("click", () =>
     console.log(searchTerm);
 });
 
+/** (Phase 2) Fetching Data: 
+ * fetch() is a built-in browser funcion that makes HTTPS/HTTP requests:
+ * it can hit either http:// or https:// URLs, whichever the address uses
+ * it returns a Promise, which is why we use .then() or async/await
+ * 
+ * Promise: is a way to say "I dont have an answer yet, but I promise to give it eventually"
+ * 
+ * #########################    EXAMPLE: MULTI-PLAYER ONLINE GAME    #########################
+ * fetch(): IS LIKE CLICKING QUEUE FOR MATCH
+ *      ~you sent the request to the matchmaking server,
+ *      ~the game DOES NOT freeze your whole screen while you wait,
+ *      ~you CAN DO whatever while its connecting you to a server
+ *      ~to play a match.
+ * 
+ *___________________________________________________________________________________________
+*/
