@@ -18,11 +18,12 @@ const results = document.getElementById("results");
  * .addEventListener() is a method that exists on every DOM element telling the browser to pay attention to this specific element when something happens to it run some code
  * "click" is the first arguement telling the browser exactly which event to watch for and there are many different event types
 */ 
-searchBarBtn.addEventListener("click", () => 
+searchBarBtn.addEventListener("click", async() => 
 {
     console.log("clicked");
-    // the moment you click the button will be whatever the user just typed
-    const searchTerm = searchBarInput.value; // every text input in the DOM has a .value property
+    // the moment you click the button will be whatever the user just typed as searchTerm
+    const searchTerm = searchBarInput.value; // grabs the input freshly every single click (every text input in the DOM has a .value property)
+    const data = searchShows(searchTerm);
     console.log(searchTerm);
 });
 
@@ -41,10 +42,16 @@ searchBarBtn.addEventListener("click", () =>
  * response.json(): parses the raw response body into usable data
 */
 
+// when user types a show and clicks search, it grabs the input and fetches it from TVMaze API
+// searchTerm is the string that is sent to the TVMaze API
 async function searchShows(searchTerm){
     const response = await fetch(`https://api.tvmaze.com/search/shows?q=${searchTerm}`); // this line pauses here
     const data = await response.json(); // this line will not run until the line above finishes
     console.log(data);
     return data;
 }
+
+
+
+
 
