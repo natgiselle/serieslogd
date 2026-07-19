@@ -74,3 +74,8 @@ function getYear(show){
     // if it fails to find it, return unknonw
     return show.premiered ? show.premiered.split("-")[0] : "Unknown";
 }
+
+function getRating(show){
+    // returns rating, if the show isnt rated yet it will return N/A string instead
+    return show.rating.average ?? "N/A";
+}
