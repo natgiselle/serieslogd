@@ -11,23 +11,6 @@ const searchBarBtn = document.getElementById("search-bar-btn");
 const results = document.getElementById("results");
 
 
-/** (Phase 1) Event Listeners:
- * .addEventListener("click", ...); to search button variable;
- * 
- * searchBarBtn is the button element reference I grabbed in Phase 0
- * .addEventListener() is a method that exists on every DOM element telling the browser to pay attention to this specific element when something happens to it run some code
- * "click" is the first arguement telling the browser exactly which event to watch for and there are many different event types
-*/ 
-searchBarBtn.addEventListener("click", async() => 
-{
-    console.log("clicked");
-    // the moment you click the button will be whatever the user just typed as searchTerm
-    // (Phase 2) Read Input Value
-    const searchTerm = searchBarInput.value; // grabs the input freshly every single click (every text input in the DOM has a .value property)
-    const data = searchShows(searchTerm);
-    console.log(searchTerm);
-});
-
 /** (Phase 3) Fetching Data
  * fetch() is a built-in browser funcion that makes HTTPS/HTTP requests:
  * it can hit either http:// or https:// URLs, whichever the address uses
@@ -88,3 +71,21 @@ async function getSeasonCount(showId){
     const seasons = await response.json();
     return seasons.length;
 }
+
+
+/** (Phase 1) Event Listeners:
+ * .addEventListener("click", ...); to search button variable;
+ * 
+ * searchBarBtn is the button element reference I grabbed in Phase 0
+ * .addEventListener() is a method that exists on every DOM element telling the browser to pay attention to this specific element when something happens to it run some code
+ * "click" is the first arguement telling the browser exactly which event to watch for and there are many different event types
+*/ 
+searchBarBtn.addEventListener("click", async() => 
+{
+    console.log("clicked");
+    // the moment you click the button will be whatever the user just typed as searchTerm
+    // (Phase 2) Read Input Value
+    const searchTerm = searchBarInput.value; // grabs the input freshly every single click (every text input in the DOM has a .value property)
+    const data = searchShows(searchTerm);
+    console.log(searchTerm);
+});
