@@ -15,6 +15,13 @@ const watchlistCards = document.getElementById("watchlist-cards");
 let watchlist = []; // holds all shows added by the user
 let lastSearchData = []; // holds most recent results (add can look up full show information)
 
+/** (Phase 9) Load watchlist from localStorage on page load */
+const savedWatchList = localStorage.getItem("watchlist");
+if(savedWatchlist){
+    watchlist = JSON.parse(savedWatchList);
+    renderWatchList();
+}
+
 /** (Phase 3) Fetching Data
  * fetch() is a built-in browser funcion that makes HTTPS/HTTP requests:
  * it can hit either http:// or https:// URLs, whichever the address uses
@@ -125,7 +132,7 @@ searchBarBtn.addEventListener("click", async() => {
 
 
 /** (Phase 7) Event Delegation for Add Button */
-resultCards.addEventListener("click", (e) => {
+resultCards.addEventListener("click", async (e) => {
     // check if the actual clicked element is an Add button
     if(e.target.classList.contains("add-btn")){
         // find the card that the button belongs to
@@ -135,6 +142,7 @@ resultCards.addEventListener("click", (e) => {
         // find the full show object from last search results (only stores the id)
         const item = lastSearchData.find(item => item.show.id == showId);
         const show = item.show;
+        const seasonCount = await getSeasonCount(show.id); // fetch again to make it a specific attribute
         console.log("Add clicked for show ID:", showId);
 
         /** (Phase 8) */
@@ -145,16 +153,18 @@ resultCards.addEventListener("click", (e) => {
             image: getImageUrl(show),
             genre: getGenre(show),
             year: getYear(show),
-            rating: getRating(show)
+            rating: getRating(show),
+            seasons: seasonCount
         };
 
         watchlist.push(showData);
         localStorage.setItem("watchlist", JSON.stringify(watchlist));
         console.log("Saved to watchlist", showData);
+        renderWatchList(); // to truly save it to watchlist by calling function
     }
 });
 
-
+/** (Phase 9) creating render watch list so cards show on that category */
 function renderWatchList() {
     watchlistCards.innerHTML = ""; // clear old cards before render;
 
@@ -174,9 +184,12 @@ function renderWatchList() {
             <div class="stars">
                 <p>${show.rating}<i class="fa fa-star"></i></p>
             </div>
-            <p>${show.seasons} Season(s)</p>
+            <p>${getSeasonCount(show.id)} Season(s)</p>
             <button type="button" class="remove-btn">Remove</button>
         `;
+
+        watchlistCards.appendChild(card);
+
     }
 }
 
