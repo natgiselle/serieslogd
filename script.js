@@ -79,3 +79,12 @@ function getRating(show){
     // returns rating, if the show isnt rated yet it will return N/A string instead
     return show.rating.average ?? "N/A";
 }
+
+// make this an async function so that you can use await, which means it will not continue to the next line until the operation is done
+// this ensures it can fetch the data first before assigning seasons var with the value;
+async function getSeasonCount(showId){
+    // fetches season count from a seperate TVmaze endpoint since this requires the show ID
+    const response = await fetch(`https:/api.tvmaze.com/shows/${showId}/seasons`);
+    const seasons = await response.json();
+    return seasons.length;
+}
