@@ -80,8 +80,7 @@ async function getSeasonCount(showId){
  * .addEventListener() is a method that exists on every DOM element telling the browser to pay attention to this specific element when something happens to it run some code
  * "click" is the first arguement telling the browser exactly which event to watch for and there are many different event types
 */ 
-searchBarBtn.addEventListener("click", async() => 
-{
+searchBarBtn.addEventListener("click", async() => {
     console.log("clicked");
     // the moment you click the button will be whatever the user just typed as searchTerm
     // (Phase 2) Read Input Value
@@ -116,6 +115,15 @@ searchBarBtn.addEventListener("click", async() =>
 
         resultCards.appendChild(card);
     }
+}); // closes searchBarBtn's addEventListener (ending the entire search-click function here)
+/** (Phase 7) Event Delegation for Add Button */
+resultCards.addEventListener("click", (e) => {
+    // check if the actual clicked element is an Add button
+    if(e.target.classList.contains("add-btn")){
+        // find the card that the button belongs to
+        const cards = e.target.closest(".result-cards");
+        const showId = cards.dataset.id;
 
-
+        console.log("Add clicked for show ID:", showId);
+    }
 });
