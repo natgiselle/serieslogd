@@ -17,7 +17,7 @@ let lastSearchData = []; // holds most recent results (add can look up full show
 
 /** (Phase 9) Load watchlist from localStorage on page load */
 const savedWatchList = localStorage.getItem("watchlist");
-if(savedWatchlist){
+if(savedWatchList){
     watchlist = JSON.parse(savedWatchList);
     renderWatchList();
 }
@@ -184,7 +184,7 @@ function renderWatchList() {
             <div class="stars">
                 <p>${show.rating}<i class="fa fa-star"></i></p>
             </div>
-            <p>${getSeasonCount(show.id)} Season(s)</p>
+            <p>${show.seasons} Season(s)</p>
             <button type="button" class="remove-btn">Remove</button>
         `;
 
@@ -192,4 +192,17 @@ function renderWatchList() {
 
     }
 }
+
+/** (Phase 10) Event Delegation for Remove Button */
+watchlistCards.addEventListener("click", (e) => {
+    if(e.target.classList.contains("remove-btn")) {
+        const card = e.target.closest(".watchlist-card");
+        const showId = card.dataset.id;
+
+        watchlist = watchlist.filter(show => show.id != showId);
+
+        localStorage.setItem("watchlist", JSON.stringify(watchlist));
+        renderWatchList();
+    }
+});
 

@@ -85,7 +85,8 @@ h1 {
 
 }
 
-.watchlist-cards {
+
+.watchlist-card {
     margin: 10px;
     padding: 10px;
     background-color: white;
@@ -99,7 +100,7 @@ h1 {
     justify-items: center;
 }
 
-.watchlist-cards img {
+.watchlist-card img {
     width: 100%;
     height: auto;
     border-radius: 6px;
