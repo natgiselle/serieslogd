@@ -11,6 +11,10 @@ const searchBarBtn = document.getElementById("search-bar-btn");
 const results = document.getElementById("results");
 const resultCards = document.getElementById("result-cards");
 
+
+let watchlist = []; // holds all shows added by the user
+let lastSearchData = []; // holds most recent results (add can look up full show information)
+
 /** (Phase 3) Fetching Data
  * fetch() is a built-in browser funcion that makes HTTPS/HTTP requests:
  * it can hit either http:// or https:// URLs, whichever the address uses
@@ -32,6 +36,8 @@ async function searchShows(searchTerm){
     // (Phase 4) Parsing Response:
     const data = await response.json(); // this line will not run until the line above finishes
     console.log(data);
+    lastSearchData = data;
+    console.log(lastSearchData);
     return data;
 }
 
@@ -86,7 +92,7 @@ searchBarBtn.addEventListener("click", async() => {
     // (Phase 2) Read Input Value
     const searchTerm = searchBarInput.value; // grabs the input freshly every single click (every text input in the DOM has a .value property)
     const data = await searchShows(searchTerm);
-    // console.log(searchTerm); for testing
+    console.log(searchTerm);
     
     resultCards.innerHTML = ""; // clear old card's info before implementing new ones
 
@@ -124,6 +130,24 @@ resultCards.addEventListener("click", (e) => {
         const cards = e.target.closest(".result-cards");
         const showId = cards.dataset.id;
 
+        // find the full show object from last search results (only stores the id)
+        const item = lastSearchData.find(item => item.show.id == showId);
+        const show = item.show;
         console.log("Add clicked for show ID:", showId);
+
+
+        // create a plain object with the show attributes needed
+        const showData = {
+            id: show.id,
+            name: show.name,
+            image: getImageUrl(show),
+            genre: getGenre(show),
+            year: getYear(show),
+            rating: getRating(show)
+        };
+
+        watchlist.push(showData);
+        localStorage.setItem("watchlist", JSON.stringify(watchlist));
+        console.log("Saved to watchlist", showData);
     }
 });
