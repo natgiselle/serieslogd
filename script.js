@@ -52,12 +52,14 @@ async function searchShows(searchTerm){
     return data;
 }
 
-
 /** (Phase 5) Clear Old Results: 
  * add results.innerHTML
 */
 
-results.innerHTML = ""; 
-
-
+// create seperate functions for any attributes of a show you need and call them in innerHTML
+function getImageUrl(show){
+    // checks if show.image exists in thw show image medium which holds all images of all shows
+    // if it does not exist , then after : it will make that the default "null" no image background
+    return show.image ? show.image.medium : "./src/noShowImage.jpg";
+}
 
