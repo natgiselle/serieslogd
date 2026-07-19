@@ -10,7 +10,7 @@ const searchBarInput = document.getElementById("search-bar-input");
 const searchBarBtn = document.getElementById("search-bar-btn");
 const results = document.getElementById("results");
 const resultCards = document.getElementById("result-cards");
-
+const watchlistCards = document.getElementById("watchlist-cards");
 
 let watchlist = []; // holds all shows added by the user
 let lastSearchData = []; // holds most recent results (add can look up full show information)
@@ -115,13 +115,15 @@ searchBarBtn.addEventListener("click", async() => {
             <div class="stars">
                 <p>${getRating(show)}/10 <i class="fa fa-star"></i></p>
             </div>
-            <p>${seasonCount} Seasons</p>
+            <p>${seasonCount} Season(s)</p>
             <button type="button" class="add-btn">Add</button>
         `;
 
         resultCards.appendChild(card);
     }
 }); // closes searchBarBtn's addEventListener (ending the entire search-click function here)
+
+
 /** (Phase 7) Event Delegation for Add Button */
 resultCards.addEventListener("click", (e) => {
     // check if the actual clicked element is an Add button
@@ -135,7 +137,7 @@ resultCards.addEventListener("click", (e) => {
         const show = item.show;
         console.log("Add clicked for show ID:", showId);
 
-
+        /** (Phase 8) */
         // create a plain object with the show attributes needed
         const showData = {
             id: show.id,
@@ -151,3 +153,30 @@ resultCards.addEventListener("click", (e) => {
         console.log("Saved to watchlist", showData);
     }
 });
+
+
+function renderWatchList() {
+    watchlistCards.innerHTML = ""; // clear old cards before render;
+
+    for(const show of watchlist){
+        const card = document.createElement("div");
+        card.className = "watchlist-card";
+        card.dataset.id = show.id;
+
+        card.innerHTML = `
+        <img src="${show.image}" width="100" alt="${show.name} poster">
+        <h3>${show.name}</h3>
+        <div class="genre-yr-row">
+            <div class="genre">${show.genre}</div>
+                <p> · </p>
+                <div class= "year">${show.year}</div>
+            </div>
+            <div class="stars">
+                <p>${show.rating}<i class="fa fa-star"></i></p>
+            </div>
+            <p>${show.seasons} Season(s)</p>
+            <button type="button" class="remove-btn">Remove</button>
+        `;
+    }
+}
+
