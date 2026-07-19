@@ -63,3 +63,8 @@ function getImageUrl(show){
     return show.image ? show.image.medium : "./src/noShowImage.jpg";
 }
 
+function getGenre(show){
+    // return a genre string if it exists return show.genre[0]
+    // if it falls back, it will give show type when genres array is empty
+    return show.genres.length > 0 ? show.genre[0] : show.type;
+}
