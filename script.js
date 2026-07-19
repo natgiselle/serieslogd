@@ -9,7 +9,7 @@
 const searchBarInput = document.getElementById("search-bar-input");
 const searchBarBtn = document.getElementById("search-bar-btn");
 const results = document.getElementById("results");
-
+const resultCards = document.getElementById("result-cards");
 
 /** (Phase 3) Fetching Data
  * fetch() is a built-in browser funcion that makes HTTPS/HTTP requests:
@@ -49,7 +49,7 @@ function getImageUrl(show){
 function getGenre(show){
     // return a genre string if it exists return show.genre[0]
     // if it falls back, it will give show type when genres array is empty
-    return show.genres.length > 0 ? show.genre[0] : show.type;
+    return show.genres.length > 0 ? show.genres[0] : show.type;
 }
 
 function getYear(show){
@@ -67,7 +67,7 @@ function getRating(show){
 // this ensures it can fetch the data first before assigning seasons var with the value;
 async function getSeasonCount(showId){
     // fetches season count from a seperate TVmaze endpoint since this requires the show ID
-    const response = await fetch(`https:/api.tvmaze.com/shows/${showId}/seasons`);
+    const response = await fetch(`https://api.tvmaze.com/shows/${showId}/seasons`);
     const seasons = await response.json();
     return seasons.length;
 }
@@ -86,6 +86,36 @@ searchBarBtn.addEventListener("click", async() =>
     // the moment you click the button will be whatever the user just typed as searchTerm
     // (Phase 2) Read Input Value
     const searchTerm = searchBarInput.value; // grabs the input freshly every single click (every text input in the DOM has a .value property)
-    const data = searchShows(searchTerm);
-    console.log(searchTerm);
+    const data = await searchShows(searchTerm);
+    // console.log(searchTerm); for testing
+    
+    resultCards.innerHTML = ""; // clear old card's info before implementing new ones
+
+    for (const item of data){
+        const show = item.show;
+        const seasonCount = await getSeasonCount(show.id);
+
+        const card = document.createElement("div");
+        card.className = "result-cards";
+        card.dataset.id = show.id; // put id on the card for later (Phase 7/8)
+
+        card.innerHTML = `
+            <img src="${getImageUrl(show)}" width="100" alt="${show.name} poster">
+            <h3>${show.name}</h3>
+            <div class="genre-yr-row">
+                <div class="genre">${getGenre(show)}</div>
+                <p> · </p>
+                <div class="year">${getYear(show)}</div>
+            </div>
+            <div class="stars">
+                <p>${getRating(show)}/10 <i class="fa fa-star"></i></p>
+            </div>
+            <p>${seasonCount} Seasons</p>
+            <button type="button" class="add-btn">Add</button>
+        `;
+
+        resultCards.appendChild(card);
+    }
+
+
 });
