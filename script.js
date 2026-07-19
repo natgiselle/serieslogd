@@ -68,3 +68,9 @@ function getGenre(show){
     // if it falls back, it will give show type when genres array is empty
     return show.genres.length > 0 ? show.genre[0] : show.type;
 }
+
+function getYear(show){
+    // returns the extracted year it got released (premiered) string
+    // if it fails to find it, return unknonw
+    return show.premiered ? show.premiered.split("-")[0] : "Unknown";
+}
